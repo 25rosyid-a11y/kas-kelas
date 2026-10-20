@@ -1,5 +1,5 @@
 /* ========================================================
-   FILE: assets.js
+   FILE: state.js
    FUNGSI: Mengelola logika keuangan (Perhitungan Saldo)
    ======================================================== */
 
