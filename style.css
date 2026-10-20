@@ -1,0 +1,222 @@
+/* ========================================================
+   1. PENGATURAN DASAR (RESET)
+   ======================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Menggunakan font modern bawaan sistem agar terlihat profesional */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f6f9; /* Warna latar belakang abu-abu sangat terang */
+    color: #333333; /* Warna teks utama abu-abu gelap agar nyaman dibaca */
+    line-height: 1.6;
+}
+
+/* ========================================================
+   2. BAGIAN HEADER (ATAS)
+   ======================================================== */
+header {
+    background-color: #1e293b; /* Warna biru dongker / navy */
+    color: white;
+    text-align: center;
+    padding: 2.5rem 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Efek bayangan halus ke bawah */
+}
+
+header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+header p {
+    color: #cbd5e1; /* Warna teks pudar untuk sub-judul */
+    font-size: 1rem;
+}
+
+/* ========================================================
+   3. WADAH UTAMA (CONTAINER)
+   ======================================================== */
+.container {
+    max-width: 900px; /* Lebar maksimal website di layar PC */
+    margin: -30px auto 40px auto; /* Margin negatif di atas agar menimpa sedikit bagian header */
+    padding: 0 15px;
+    position: relative; /* Agar margin negatif berfungsi maksimal */
+}
+
+/* ========================================================
+   4. KARTU RINGKASAN SALDO (SUMMARY CARDS)
+   ======================================================== */
+.summary-cards {
+    display: flex;
+    gap: 20px; /* Jarak antar kartu */
+    margin-bottom: 30px;
+}
+
+.card {
+    flex: 1; /* Membuat ukuran ketiga kartu sama besar */
+    background: white;
+    padding: 25px 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* Efek bayangan melayang */
+    transition: transform 0.3s ease; /* Efek animasi saat kursor diarahkan */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Kartu sedikit terangkat saat di-hover */
+}
+
+/* Garis warna di atas masing-masing kartu untuk identitas visual */
+.card.saldo { border-top: 5px solid #2563eb; } /* Biru */
+.card.masuk { border-top: 5px solid #16a34a; } /* Hijau */
+.card.keluar { border-top: 5px solid #dc2626; } /* Merah */
+
+.card h3 {
+    font-size: 1.1rem;
+    color: #64748b;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #0f172a;
+}
+
+/* ========================================================
+   5. FORMULIR INPUT & TABEL RIWAYAT
+   ======================================================== */
+.form-section, .table-section {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.form-section h2, .table-section h2 {
+    margin-bottom: 20px;
+    color: #1e293b;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 10px;
+}
+
+/* Desain Grid untuk Form (Agar kotak isian berjejer rapi) */
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Membagi form menjadi 2 kolom di layar besar */
+    gap: 15px;
+}
+
+/* Mengatur input keterangan agar mengambil lebar penuh (2 kolom) */
+#keterangan {
+    grid-column: span 2;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+input:focus, select:focus {
+    border-color: #2563eb; /* Warna border berubah biru saat diketik */
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* Desain Tombol */
+button {
+    grid-column: span 2; /* Tombol membentang penuh */
+    padding: 14px;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+button:hover {
+    background-color: #1d4ed8;
+}
+
+button:active {
+    transform: scale(0.98); /* Efek tombol ditekan */
+}
+
+/* ========================================================
+   6. DESAIN TABEL
+   ======================================================== */
+.table-section {
+    overflow-x: auto; /* Agar tabel bisa di-scroll ke samping di layar HP */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px; /* Mencegah tabel terlalu menyempit */
+}
+
+th, td {
+    padding: 15px;
+    border-bottom: 1px solid #e2e8f0;
+    text-align: left;
+}
+
+th {
+    background-color: #f8fafc;
+    color: #475569;
+    font-weight: 600;
+}
+
+tr:hover {
+    background-color: #f1f5f9; /* Efek sorot saat kursor berada di atas baris tabel */
+}
+
+/* Desain Tombol Hapus di dalam Tabel */
+td button {
+    background-color: #fee2e2;
+    color: #dc2626;
+    font-size: 0.9rem;
+    padding: 8px 12px;
+    width: auto;
+    border-radius: 4px;
+}
+
+td button:hover {
+    background-color: #ef4444;
+    color: white;
+}
+
+/* ========================================================
+   7. RESPONSIVITAS (UNTUK TAMPILAN HP / MOBILE)
+   ======================================================== */
+@media screen and (max-width: 768px) {
+    /* Kartu ringkasan menjadi vertikal/bertumpuk di HP */
+    .summary-cards {
+        flex-direction: column;
+    }
+    
+    /* Semua input form mengambil 1 kolom penuh di HP */
+    form {
+        grid-template-columns: 1fr;
+    }
+    
+    #keterangan, button {
+        grid-column: span 1;
+    }
+    
+    .container {
+        margin-top: -15px; /* Mengurangi margin negatif di layar kecil */
+    }
+}
