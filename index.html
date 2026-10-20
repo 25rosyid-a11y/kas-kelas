@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KasKelas - Pengelolaan Kas Transparan</title>
+    
+    <!-- Menyambungkan ke file CSS untuk desain -->
+    <!-- Pastikan file CSS ada di dalam folder 'css' dengan nama 'style.css' -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+    <!-- Bagian Header Aplikasi -->
+    <header>
+        <h1>KasKelas SMK</h1>
+        <p>Sistem Pengelolaan Keuangan Kelas Transparan</p>
+    </header>
+
+    <!-- Wadah Utama Konten Aplikasi -->
+    <main class="container">
+        
+        <!-- 1. Bagian Kartu Ringkasan Keuangan -->
+        <section class="summary-cards">
+            <div class="card saldo">
+                <h3>Sisa Saldo</h3>
+                <!-- ID di bawah digunakan oleh JavaScript untuk mengubah angka -->
+                <p id="totalSaldo">Rp 0</p>
+            </div>
+            <div class="card masuk">
+                <h3>Total Masuk</h3>
+                <p id="totalMasuk">Rp 0</p>
+            </div>
+            <div class="card keluar">
+                <h3>Total Keluar</h3>
+                <p id="totalKeluar">Rp 0</p>
+            </div>
+        </section>
+
+        <!-- 2. Bagian Formulir Input Transaksi Baru -->
+        <section class="form-section">
+            <h2>Tambah Transaksi</h2>
+            <form id="kasForm">
+                <!-- Input Tanggal Transaksi -->
+                <input type="date" id="tanggal" required title="Pilih tanggal transaksi">
+                
+                <!-- Pilihan Tipe Transaksi (Masuk/Keluar) -->
+                <select id="tipe" required title="Pilih jenis transaksi">
+                    <option value="masuk">Pemasukan (Uang Kas)</option>
+                    <option value="keluar">Pengeluaran</option>
+                </select>
+                
+                <!-- Input Nama Siswa atau Keterangan -->
+                <input type="text" id="keterangan" placeholder="Nama Siswa / Keterangan Pembelian" autocomplete="off" required>
+                
+                <!-- Input Nominal Uang (hanya angka) -->
+                <input type="number" id="nominal" placeholder="Nominal (Contoh: 5000)" min="1" required>
+                
+                <!-- Tombol Simpan -->
+                <button type="submit" id="btnSimpan">Simpan Transaksi</button>
+            </form>
+        </section>
+
+        <!-- 3. Bagian Tabel Riwayat Transaksi -->
+        <section class="table-section">
+            <h2>Riwayat Transaksi</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tanggal</th>
+                        <th>Keterangan</th>
+                        <th>Tipe</th>
+                        <th>Nominal</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <!-- Bagian <tbody> dikosongkan karena data akan diisi secara otomatis oleh JavaScript -->
+                <tbody id="tabelBody">
+                </tbody>
+            </table>
+        </section>
+        
+    </main>
+
+    <!-- Menyambungkan ke file JavaScript untuk logika aplikasi -->
+    <!-- Pastikan file JS ada di dalam folder 'js'. Urutan ini sangat penting! -->
+    <script src="js/storage.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
